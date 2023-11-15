@@ -1,0 +1,14 @@
+.counter {
+    display: flex;
+    align-items: center;
+    gap:10px;
+}
+
+button {
+    background: red;
+    padding:20px;
+
+    + span {
+        padding: 20px;
+    }
+}
