@@ -8,6 +8,7 @@ import path from "path";
 interface EnvVariable {
     port: number;
     mode: BuildMode;
+    analyzer?: boolean
 }
 
 export default (env: EnvVariable) => {
@@ -15,13 +16,15 @@ export default (env: EnvVariable) => {
     const paths: BuildPaths = {
         html: path.resolve(__dirname, 'public', 'index.html'),
         output: path.resolve(__dirname, 'build'),
-        entry: path.resolve(__dirname, 'src', 'index.tsx')
+        entry: path.resolve(__dirname, 'src', 'index.tsx'),
+        src: path.resolve(__dirname, 'src'),
     }
 
     const config: webpack.Configuration = buildWebpack({
         port: env.port ?? 3000,
         mode: env.mode,
-        paths
+        paths,
+        analyzer: env.analyzer,
     });
 
     return config;
