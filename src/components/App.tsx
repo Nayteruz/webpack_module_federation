@@ -1,6 +1,10 @@
 import {useState} from "react";
 import s from "./App.module.scss"
 import {Link, Outlet} from "react-router-dom";
+import i1 from '@/assets/img1.webp';
+import i2 from '@/assets/img2.jpg';
+import i3 from '@/assets/img3.png';
+import Cal from '@/assets/img4.svg';
 
 
 export const App = () => {
@@ -18,6 +22,14 @@ export const App = () => {
     return (
         <>
             <h1 className={s.value}>{counter}</h1>
+            <div>
+                <img width={100} height={100} src={i1} alt=""/>
+                <img width={100} height={100} src={i2} alt=""/>
+                <img width={100} height={100} src={i3} alt=""/>
+            </div>
+            <div>
+                <Cal className={'clc'} width={50} height={50} stroke={'red'}/>
+            </div>
             <Link to="/about" >About</Link>
             <Link to="/shop" >Shop</Link>
             <div className={s.counter}>
