@@ -6,6 +6,9 @@ import i2 from '@/assets/img2.jpg';
 import i3 from '@/assets/img3.png';
 import Cal from '@/assets/img4.svg';
 
+function FOO(v: number) {
+    console.log(v);
+}
 
 export const App = () => {
 
@@ -19,9 +22,18 @@ export const App = () => {
         setCounter((prev) => prev - 1);
     }
 
+    if(__PLATFORM__ === 'mobile') {
+        return <div>Plaform mobile</div>
+    }
+
+    if (__ENV__ === 'development') {
+        // addDevtools()
+    }
+
     return (
         <>
             <h1 className={s.value}>{counter}</h1>
+            <div>platform: {__PLATFORM__}</div>
             <div>
                 <img width={100} height={100} src={i1} alt=""/>
                 <img width={100} height={100} src={i2} alt=""/>

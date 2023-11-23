@@ -13,16 +13,20 @@ export const buildLoaders = ({mode}: BuildOptions): ModuleOptions['rules'] => {
 
     const svgLoader = {
         test: /\.svg$/i,
-        use: [{loader: '@svgr/webpack', options: {icon: true, svgoConfig: {
-            plugins: [
-                {
-                    name: 'convertColors',
-                    params: {
-                        currentColor: true,
-                    }
+        use: [{
+            loader: '@svgr/webpack', options: {
+                icon: true, svgoConfig: {
+                    plugins: [
+                        {
+                            name: 'convertColors',
+                            params: {
+                                currentColor: true,
+                            }
+                        }
+                    ]
                 }
-            ]
-                }}}],
+            }
+        }],
     };
 
     const cssLoaderModule = {
@@ -39,10 +43,24 @@ export const buildLoaders = ({mode}: BuildOptions): ModuleOptions['rules'] => {
         use: [isDev ? "style-loader" : MiniCssExtractPlugin.loader, cssLoaderModule, "sass-loader"],
     }
 
+    // const tsLoader = {
+    // ts умеет работать с JSX
+    // Если не использовать то нужен babel loader
+    //     test: /\.tsx?$/,
+    //     use: 'ts-loader',
+    //     exclude: /node_modules/,
+    // }
     const tsLoader = {
         test: /\.tsx?$/,
-        use: 'ts-loader',
         exclude: /node_modules/,
+        use: [
+            {
+                loader: 'ts-loader',
+                options: {
+                    transpileOnly: isDev
+                }
+            }
+        ]
     }
 
     return [
