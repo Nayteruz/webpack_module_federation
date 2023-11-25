@@ -31,9 +31,9 @@ export const App = () => {
     // }
 
     return (
-        <>
+        <div data-testid="App">
             <h1 className={s.value}>{counter}</h1>
-            <div>platform: {__PLATFORM__}</div>
+            <div data-testid="Platform">platform: {__PLATFORM__}</div>
             <div>
                 <img width={100} height={100} src={i1} alt=""/>
                 <img width={100} height={100} src={i2} alt=""/>
@@ -50,6 +50,6 @@ export const App = () => {
                 <button onClick={increment}>+</button>
             </div>
             <Outlet/>
-        </>
+        </div>
     );
 };
