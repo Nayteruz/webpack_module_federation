@@ -1,5 +1,4 @@
 import webpack from "webpack";
-import path from "path";
 import {buildDevServer} from "./buildDevServer";
 import {buildLoaders} from "./buildLoaders";
 import {buildPlugins} from "./buildPlugins";

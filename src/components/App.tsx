@@ -4,11 +4,11 @@ import {Link, Outlet} from "react-router-dom";
 import i1 from '@/assets/img1.webp';
 import i2 from '@/assets/img2.jpg';
 import i3 from '@/assets/img3.png';
-import Cal from '@/assets/img4.svg';
+import Android from '@/assets/img4.svg';
 
-function FOO(v: number) {
-    console.log(v);
-}
+// function FOO(v: number) {
+//     console.log(v);
+// }
 
 export const App = () => {
 
@@ -22,13 +22,13 @@ export const App = () => {
         setCounter((prev) => prev - 1);
     }
 
-    if(__PLATFORM__ === 'mobile') {
-        return <div>Plaform mobile</div>
-    }
-
-    if (__ENV__ === 'development') {
-        // addDevtools()
-    }
+    // if(__PLATFORM__ === 'mobile') {
+    //     return <div>Plaform mobile</div>
+    // }
+    //
+    // if (__ENV__ === 'development') {
+    //     // addDevtools()
+    // }
 
     return (
         <>
@@ -40,7 +40,7 @@ export const App = () => {
                 <img width={100} height={100} src={i3} alt=""/>
             </div>
             <div>
-                <Cal className={'clc'} width={50} height={50} stroke={'red'}/>
+                <Android className={'clc'} width={50} height={50} stroke={'red'}/>
             </div>
             <Link to="/about" >About</Link>
             <Link to="/shop" >Shop</Link>
