@@ -6,16 +6,20 @@ import i2 from '@/assets/img2.jpg';
 import i3 from '@/assets/img3.png';
 import Android from '@/assets/img4.svg';
 
-// function FOO(v: number) {
-//     console.log(v);
-// }
+function FOO() {
+    FOO2()
+}
+
+function FOO2() {
+    throw new Error();
+}
 
 export const App = () => {
 
     const [counter, setCounter] = useState(0);
 
     const increment = () => {
-        setCounter((prev) => prev + 1);
+        FOO();
     }
 
     const decrement = () => {

@@ -13,7 +13,7 @@ export const buildWebpack = (options: BuildOptions): webpack.Configuration => {
         mode: mode ?? 'development',
         entry: paths.entry,
         devServer: isDev ? buildDevServer(options) : undefined,
-        devtool: isDev ? 'inline-source-map' : false,
+        devtool: isDev ? 'eval-cheap-module-source-map' : 'source-map',
         module: {
             rules: buildLoaders(options),
         },
